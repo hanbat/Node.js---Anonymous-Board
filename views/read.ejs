@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Anonymous Board</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    </script>
+
+  </head>
+  <body>
+  
+
+  <h1>Nickname : <%= nickname %></h1>
+  <h1>Title : <%= title %></h1>
+  <h1>Content : <%= content %></h1>
+
+
+	<div>
+		<button id="create" onclick="location.href='../list'">Go Back</button>
+		<button id="create" onclick="location.href='../update/<%=id%>'">Update</button>
+		<button id="create" onclick="location.href='../delete/<%=id%>'">Delete</button>
+	</div>
+
+  </body>
+</html>

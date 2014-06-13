@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Anonymous Board</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$('#btnOK').click(function(){
+
+				var my_title = $('#title').val();
+				var my_nickname = $('#nickname').val();
+				var my_content = $('#content').val();
+				var id = $('#id').val();
+
+				$.post('/update', {
+
+								title: my_title,
+								nickname: my_nickname,
+								content: my_content,
+								id: id
+
+			});  	
+
+				$(location).attr('href', '../read/'+id);
+			});
+			});
+
+		
+	</script>
+
+  </head>
+  <body>
+
+	<div id='form'>
+		<input type="hidden" id="id" name="id" value="<%=id%>">
+		<input type='text' size='50' placeholder='Please Write the title' id='title' value='<%=title%>'></input>
+		<input type='text' size='50' placeholder='Please Write your nickname' id='nickname' value='<%=nickname%>'></input></br></br>
+		<textarea rows="30" cols="200" id='content'>
+<%=content%>
+		</textarea>
+		<button id='btnOK' value='Update'>Submit</button>
+		<button id='create' onClick="location.href='../read/<%=id%>'" >Go Back</button>
+	</div>
+
+
+  </body>
+</html>

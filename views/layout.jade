@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+  body
+    block content
+      h1 Anonymous Board
+      button#create(onclick='location.href=\'../create\'') Create
+      button Update
+      button Delete

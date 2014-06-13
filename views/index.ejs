@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Anonymous Board</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+
+         $('#tableset tr').bind('click', function(e){
+
+             var url = '../read/'+ $(e.currentTarget).data('value');
+
+             $(location).attr('href', url);
+         });
+
+         $('#tableset tr').bind('mouseover', function(e){
+
+           $(e.currentTarget).children('td').css('background-color', 'lightgray');
+
+         });
+           
+         $('#tableset tr').bind('mouseout', function(e){
+
+           $(e.currentTarget).children('td').css('background-color', 'white');
+
+         });
+
+    });
+
+    </script>
+
+  </head>
+  <body>
+<h1>Anonymous Board</h1>
+<table border='1' width='50%' id='tableset'>
+    <tr>
+        <th height='60' bgcolor='lightgray'><b>Nickname<b></th>
+        <th bgcolor='lightgray'><b>Title<b></th>
+        <th bgcolor='lightgray'><b>IP Address<b></th>
+    <tr>
+      <% result.forEach(function (user) { %>
+          <tr id='items' data-value=<%= user.id %> style="cursor:pointer">
+            <td height='40'><%= user.nickname %></td>
+            <td><%= user.title %></td>
+            <td><%= user.ip_address %></td>
+          </tr>
+      <% }); %>
+</table>
+   <button id="create" onclick="location.href='../create'">Create</button>
+  </body>
+</html>
